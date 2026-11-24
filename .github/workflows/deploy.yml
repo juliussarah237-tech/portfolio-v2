@@ -1,0 +1,4 @@
+# GitHub Actions workflow to auto-build and deploy to GitHub Pages on push to main
+# name: Deploy to GitHub Pages
+# on: push to main
+# jobs: build (npm ci, npm run build) -> deploy (peaceiris/actions-gh-pages or actions/deploy-pages)

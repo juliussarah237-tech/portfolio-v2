@@ -1,0 +1,635 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   ANUNIRO UGOCHI SARAH — PORTFOLIO VISUAL SYSTEM
+   Black / White / Sharp Red / Deep Crimson
+   ========================================================= */
+
+:root {
+  --color-bg: #050505;
+  --color-bg-soft: #0b0809;
+  --color-bg-card: #100b0c;
+
+  --color-text: #ffffff;
+  --color-text-muted: #a6a1a1;
+
+  --color-accent: #c1121f;
+  --color-accent-bright: #e63946;
+  --color-accent-soft: #ff5964;
+  --color-crimson: #5f0b12;
+
+  --color-border: rgba(255, 255, 255, 0.10);
+  --color-border-red: rgba(193, 18, 31, 0.35);
+
+  --color-glow: rgba(193, 18, 31, 0.32);
+  --color-glow-bright: rgba(230, 57, 70, 0.20);
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-bg);
+}
+
+body {
+  position: relative;
+  margin: 0;
+  background:
+    radial-gradient(
+      circle at 50% -10%,
+      rgba(193, 18, 31, 0.12),
+      transparent 35%
+    ),
+    var(--color-bg);
+  color: var(--color-text);
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   PREMIUM FILM GRAIN
+   ========================================================= */
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+
+  opacity: 0.028;
+  mix-blend-mode: overlay;
+
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4,
+.font-display {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: white;
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b1519;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+.section-container {
+  @apply max-w-6xl mx-auto px-6 sm:px-8 lg:px-10;
+}
+
+.section-padding {
+  @apply py-24 sm:py-32;
+}
+
+/* =========================================================
+   HERO GLOW
+   ========================================================= */
+
+.glow-backdrop {
+  position: relative;
+
+  background:
+    radial-gradient(
+      circle at 72% 35%,
+      rgba(193, 18, 31, 0.34),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(95, 11, 18, 0.30),
+      transparent 35%
+    ),
+    #050505;
+}
+
+.glow-backdrop::after {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: 5%;
+  top: 20%;
+
+  background: rgba(193, 18, 31, 0.14);
+  filter: blur(120px);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   RED LIGHT / ORB EFFECTS
+   ========================================================= */
+
+.red-orb {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(193, 18, 31, 0.28),
+    transparent 70%
+  );
+
+  filter: blur(15px);
+  pointer-events: none;
+
+  animation: orbFloat 9s ease-in-out infinite;
+}
+
+.red-orb-small {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(230, 57, 70, 0.20),
+    transparent 70%
+  );
+
+  filter: blur(25px);
+  pointer-events: none;
+
+  animation: orbFloat 7s ease-in-out infinite reverse;
+}
+
+@keyframes orbFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(30px, -25px, 0);
+  }
+}
+
+/* =========================================================
+   SECTION BACKGROUNDS
+   ========================================================= */
+
+/* Hero */
+.mesh-hero {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 72% 30%,
+      rgba(193, 18, 31, 0.30),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(95, 11, 18, 0.22),
+      transparent 30%
+    ),
+    #050505;
+}
+
+/* What I Do */
+.mesh-warm {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(193, 18, 31, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 75%,
+      rgba(95, 11, 18, 0.25),
+      transparent 32%
+    ),
+    linear-gradient(
+      135deg,
+      #090607 0%,
+      #120809 50%,
+      #050505 100%
+    );
+}
+
+/* Data Analytics */
+.mesh-data {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      115deg,
+      #050505 0%,
+      #0d0608 45%,
+      #19080b 100%
+    );
+
+  isolation: isolate;
+}
+
+.mesh-data::before {
+  content: '';
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  right: -250px;
+  top: 10%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(193, 18, 31, 0.20),
+    transparent 68%
+  );
+
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+/* Web Development */
+.mesh-web {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(230, 57, 70, 0.10),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      #f7f7f7 0%,
+      #ffffff 100%
+    );
+
+  color: #080808;
+}
+
+/* Experience */
+.mesh-deep {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(193, 18, 31, 0.20),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(95, 11, 18, 0.28),
+      transparent 35%
+    ),
+    #090506;
+}
+
+/* Certifications */
+.mesh-diagonal {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      125deg,
+      #050505 0%,
+      #100607 45%,
+      #21090d 100%
+    );
+}
+
+/* Products */
+.mesh-products {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 20% 25%,
+      rgba(193, 18, 31, 0.18),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 75%,
+      rgba(230, 57, 70, 0.12),
+      transparent 28%
+    ),
+    #070506;
+}
+
+/* Proof of Work */
+.mesh-proof {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #050505 0%,
+      #0b0607 55%,
+      #18080b 100%
+    );
+}
+
+/* Contact */
+.mesh-contact {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 100%,
+      rgba(193, 18, 31, 0.32),
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(95, 11, 18, 0.22),
+      transparent 30%
+    ),
+    #050505;
+}
+
+/* Existing compatibility class */
+.mesh-subtle {
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(193, 18, 31, 0.10),
+      transparent 55%
+    ),
+    #050505;
+}
+
+/* =========================================================
+   GIANT BACKGROUND TYPOGRAPHY
+   ========================================================= */
+
+.background-word {
+  position: absolute;
+
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(7rem, 18vw, 18rem);
+  font-weight: 700;
+  line-height: 0.8;
+
+  color: rgba(255, 255, 255, 0.025);
+
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+
+  letter-spacing: -0.08em;
+}
+
+.background-word-red {
+  color: rgba(193, 18, 31, 0.07);
+}
+
+/* =========================================================
+   GLASS CARDS
+   ========================================================= */
+
+.glass-card {
+  background: rgba(15, 10, 11, 0.68);
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  transition:
+    transform 300ms ease,
+    border-color 300ms ease,
+    box-shadow 300ms ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-6px);
+
+  border-color: rgba(193, 18, 31, 0.45);
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(193, 18, 31, 0.08);
+}
+
+/* =========================================================
+   RED BORDER GLOW
+   ========================================================= */
+
+.red-border {
+  border: 1px solid var(--color-border-red);
+
+  box-shadow:
+    0 0 30px rgba(193, 18, 31, 0.05);
+}
+
+.red-border:hover {
+  border-color: rgba(230, 57, 70, 0.65);
+
+  box-shadow:
+    0 0 40px rgba(193, 18, 31, 0.14);
+}
+
+/* =========================================================
+   IMAGE EFFECT
+   ========================================================= */
+
+.hero-image {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 1.5rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.10);
+
+  box-shadow:
+    0 40px 100px rgba(0, 0, 0, 0.55),
+    0 0 80px rgba(193, 18, 31, 0.12);
+}
+
+.hero-image::after {
+  content: '';
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent 55%,
+      rgba(0, 0, 0, 0.45) 100%
+    );
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   RED LINE
+   ========================================================= */
+
+.red-line {
+  height: 1px;
+  width: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(193, 18, 31, 0.65),
+      transparent
+    );
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.pill {
+  @apply inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium transition-all duration-300;
+}
+
+.pill-primary {
+  background: var(--color-accent);
+  color: white;
+
+  box-shadow:
+    0 10px 35px rgba(193, 18, 31, 0.25);
+}
+
+.pill-primary:hover {
+  background: var(--color-accent-bright);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 15px 45px rgba(193, 18, 31, 0.35);
+}
+
+.pill-outline {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: white;
+}
+
+.pill-outline:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent-soft);
+}
+
+/* =========================================================
+   SECTION DIVIDER
+   ========================================================= */
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(193, 18, 31, 0.30),
+      transparent
+    );
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .section-padding {
+    @apply py-20;
+  }
+
+  .background-word {
+    font-size: 6rem;
+  }
+
+  .red-orb {
+    width: 180px;
+    height: 180px;
+  }
+
+  .mesh-hero {
+    background:
+      radial-gradient(
+        circle at 50% 35%,
+        rgba(193, 18, 31, 0.25),
+        transparent 35%
+      ),
+      #050505;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
